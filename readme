@@ -1,0 +1,34 @@
+# API Flask
+
+Este proyecto es una API desarrollada con Flask, un framework web ligero y flexible para Python. A continuación, se detallan algunos aspectos técnicos relevantes de la implementación:
+
+## Estructura del Proyecto
+
+El proyecto sigue una estructura modular, utilizando blueprints de Flask para organizar las rutas y funcionalidades relacionadas. Esto permite una mejor escalabilidad y mantenimiento del código.
+
+## Características Técnicas
+
+1. **Configuración**: La aplicación utiliza un objeto `Config` para manejar la configuración, lo que facilita la gestión de diferentes entornos (desarrollo, producción, etc.).
+
+2. **Base de Datos**: Se utiliza SQLAlchemy como ORM (Object-Relational Mapping) para interactuar con la base de datos. Esto proporciona una capa de abstracción sobre SQL y permite trabajar con objetos Python.
+
+3. **Autenticación**: La API implementa un sistema básico de autenticación, utilizando hashing de contraseñas con Werkzeug para almacenar las contraseñas de forma segura.
+
+4. **Documentación**: Se ha integrado Swagger (flasgger) para proporcionar documentación interactiva de la API. Esto facilita a los desarrolladores entender y probar los endpoints disponibles.
+
+5. **Manejo de Errores**: La API incluye manejo de errores personalizado para proporcionar respuestas coherentes y útiles en caso de problemas.
+
+6. **Serialización**: Los modelos de la base de datos incluyen métodos para serializar los objetos a formato JSON, facilitando la respuesta de la API.
+
+## Tecnologías Utilizadas
+
+- **Flask**: Framework web principal
+- **SQLAlchemy**: ORM para la base de datos
+- **Werkzeug**: Utilidades web, incluyendo funciones de hashing
+- **Flasgger**: Integración de Swagger para documentación de API
+
+## Desarrollo y Despliegue
+
+El proyecto está estructurado para facilitar tanto el desarrollo local como el despliegue en producción. Se utiliza un archivo `.gitignore` para excluir archivos y directorios innecesarios del control de versiones.
+
+Para más detalles sobre la implementación y uso de la API, consulte la documentación de Swagger disponible en la ruta `/apidocs` cuando la aplicación esté en ejecución.
