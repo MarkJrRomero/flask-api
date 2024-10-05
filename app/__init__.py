@@ -4,6 +4,7 @@ from config import Config
 from .extensions import db
 from flasgger import Swagger
 from flask_jwt_extended import JWTManager
+from flask_migrate import Migrate
 
 def create_app():
 
@@ -21,6 +22,7 @@ def create_app():
 
     # Inicializar la base de datos
     db.init_app(app)
+    Migrate(app, db)
 
     #Configurar las rutas
     register_blueprints(app)
