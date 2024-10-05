@@ -1,19 +1,23 @@
 from flask import Flask
 from .router import register_blueprints
 from config import Config
-from .database import db
+from .extensions import db
 from flasgger import Swagger
+from flask_jwt_extended import JWTManager
 
 def create_app():
 
     #Inicializamos la app
     app = Flask(__name__)
 
-    #Configuración básica de Swagger
-    swagger = Swagger(app)
-
     #Cargar la configuración
     app.config.from_object(Config)
+
+    #Configuración de JWT
+    JWTManager(app)
+
+    #Configuración básica de Swagger
+    Swagger(app)
 
     # Inicializar la base de datos
     db.init_app(app)

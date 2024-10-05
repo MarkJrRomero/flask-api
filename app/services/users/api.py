@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request, json
 from .models import User
-from app.database import db
+from app.extensions import db
 from flasgger import swag_from
+from flask_jwt_extended import jwt_required
 
 # Crear un blueprint para el servicio de usuario
 user_router = Blueprint('user_bp', __name__)
@@ -32,6 +33,7 @@ def get_users():
     return jsonify({"data": users_list, "message": "Usuarios consultados correctamente", "status": 200}), 200
 
 @user_router.route('/create', methods=['POST'])
+@jwt_required()
 @swag_from({
     'responses': {
         201: {
